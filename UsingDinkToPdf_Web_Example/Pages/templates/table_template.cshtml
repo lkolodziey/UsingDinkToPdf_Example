@@ -1,0 +1,36 @@
+﻿@page
+@model UsingDinkToPdf_Web_Example.Pages.templates.table_templateModel
+@{
+    ViewData["Title"] = "table_template";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Page Table Example</h2>
+
+<table class="table table-bordered table-condensed">
+    <tr>
+        <th>
+            Material Code
+        </th>
+        <th>
+            Material Name
+        </th>
+        <th class="text-right">
+            Material Unit Price
+        </th>
+    </tr>
+    @foreach (var item in Model.DataModels)
+    {
+        <tr>
+            <td>
+                @item.ProductCode
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            <td class="text-right">
+                @string.Format("{0:C}", item.UnitPrice)
+            </td>
+        </tr>
+    }
+</table>
